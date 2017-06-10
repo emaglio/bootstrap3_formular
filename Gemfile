@@ -68,3 +68,12 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'trailblazer', '>= 2.0.1'
+gem 'trailblazer-cells'
+gem 'trailblazer-rails'
+gem 'cells-rails'
+gem 'cells-slim'
+gem 'dry-validation'
+gem 'formular', :github => "trailblazer/formular"
+gem 'reform', '>= 2.3.0.rc1'
+gem 'reform-rails', '>= 0.2.0.rc1'
