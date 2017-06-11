@@ -1,0 +1,45 @@
+doctype html
+html lang = "en"
+  head
+
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content=""
+    meta name="author" content=""
+
+    title = "Formular Bootstrap3"
+
+    <!-- Theme CSS -->
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    <!-- Custom Fonts -->
+    //link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"
+    //link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet"
+    //link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    /[if lt IE 9]
+      script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+      script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
+
+  body
+    = cell('blog/cell/navigation')
+    <!-- Page Header -->
+    .header class="intro-header" style="background-image: url('/assets/home-bg.jpg')"
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+            div class = "site-heading"
+              h1 = "Formular Bootstrap3"
+              hr class = "small"
+              .subheading
+                = "App example to visually test Formular with Bootstrap3 as builder"
+
+    .col-lg-8.text-center
+      = yield
+
+    = cell('blog/cell/footer')

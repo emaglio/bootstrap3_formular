@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper Formular::RailsHelper
+
+  def tyrant
+    Tyrant::Session.new(request.env['warden'])
+  end
 
 
   def render(cell_constant, model, options: {})
