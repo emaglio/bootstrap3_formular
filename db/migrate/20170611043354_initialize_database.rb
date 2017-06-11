@@ -5,8 +5,7 @@ class InitializeDatabase < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :firstname
       t.string :lastname
-      t.string :age
-      t.string :phone
+      t.datetime :dob
       t.string :gender
       t.boolean :block
       t.text :content
