@@ -12,4 +12,12 @@ class UsersController < ApplicationController
     render User::Cell::New, result["contract.default"]
   end
 
+  def create
+    run User::Create do |result|
+      return redirect_to "/users"
+    end
+
+    render User::Cell::New, result["contract.default"]
+  end
+
 end # class UserController

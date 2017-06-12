@@ -20,31 +20,31 @@ module User::Contract
       configure do
         config.messages_file = 'config/error_messages.yml'
 
-        def unique_email?
-          User.where("email = ?", form.email).size == 0
-        end
+        # def unique_email?
+        #   User.where("email = ?", form.email).size == 0
+        # end
 
-        def email?
-          ! /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.match(form.email).nil?
-        end
+        # def email?
+        #   ! /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.match(form.email).nil?
+        # end
 
-        def must_be_equal?
-          return form.password == form.confirm_password
-        end
+        # def must_be_equal?
+        #   return form.password == form.confirm_password
+        # end
       end
 
-      required(:email).filled(:email?)
+      required(:email).filled
       required(:password).filled
       required(:confirm_password).filled
 
 
-      validate(unique_email?: :email) do
-        unique_email?
-      end
+      # validate(unique_email?: :email) do
+      #   unique_email?
+      # end
 
-      validate(must_be_equal?: :confirm_password) do
-        must_be_equal?
-      end
+      # validate(must_be_equal?: :confirm_password) do
+      #   must_be_equal?
+      # end
     end
   end
 end
