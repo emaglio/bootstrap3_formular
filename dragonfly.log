@@ -1,0 +1,7 @@
+# Logfile created on 2017-06-13 14:57:40 +1000 by logger.rb/47272
+D, [2017-06-13T14:57:40.808121 #3443] DEBUG -- : DRAGONFLY: shell command: 'convert' '/tmp/dragonfly20170613-3443-qc8llp' '-resize' '60x60^^' '-gravity' 'Center' '-crop' '60x60+0+0' '+repage' '/tmp/dragonfly20170613-3443-78cr4u'
+D, [2017-06-13T14:58:11.657941 #3443] DEBUG -- : DRAGONFLY: shell command: 'convert' '/tmp/dragonfly20170613-3443-sdppww' '-resize' '120x120^^' '-gravity' 'Center' '-crop' '120x120+0+0' '+repage' '/tmp/dragonfly20170613-3443-177qfec'
+D, [2017-06-13T15:02:10.229758 #3443] DEBUG -- : DRAGONFLY: shell command: 'convert' '/tmp/dragonfly20170613-3443-12yvjtr' '-resize' '120x120^^' '-gravity' 'Center' '-crop' '120x120+0+0' '+repage' '/tmp/dragonfly20170613-3443-1xkcxps'
+D, [2017-06-13T15:02:29.292206 #3443] DEBUG -- : DRAGONFLY: shell command: 'convert' '/tmp/dragonfly20170613-3443-9m1uxt' '-resize' '120x120^^' '-gravity' 'Center' '-crop' '120x120+0+0' '+repage' '/tmp/dragonfly20170613-3443-1cia1e0'
+D, [2017-06-13T15:03:40.755967 #3443] DEBUG -- : DRAGONFLY: shell command: 'convert' '/tmp/RackMultipart20170613-3443-1rlytm6.jpeg' '-resize' '120x120^^' '-gravity' 'Center' '-crop' '120x120+0+0' '+repage' '/tmp/dragonfly20170613-3443-3qfkeb.jpeg'
+D, [2017-06-13T15:03:41.009605 #3443] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/dragonfly20170613-3443-3qfkeb.jpeg'

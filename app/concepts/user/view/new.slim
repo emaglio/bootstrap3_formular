@@ -1,7 +1,7 @@
 .row
   h1 New User
 .row
-  = trb_form_for model, "/users", method: :post, builder: :bootstrap3, id: :new_user do |f|
+  = trb_form_for model, "/users", method: :post, builder: :bootstrap3, id: :new_user, enctype: 'multipart/form-data' do |f|
     .row
       .col-sm-6
         = f.input :firstname, placeholder: "Firstname"
@@ -22,7 +22,7 @@
         = f.input :password, placeholder: "Password", type: "password"
       .col-sm-6
         = f.input :confirm_password, placeholder: "Confirm Password", type: "password"
-    .row
-      = f.avatar, label: "Profile image", type: "file"
+    .row.text-left
+      = f.input :avatar, label: "Profile image", type: "file"
     .row
       = f.submit(content: "Create User")

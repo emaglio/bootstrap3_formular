@@ -9,8 +9,10 @@
     .row
       = f.textarea :body, placeholder: "Write here", rows: 9
     = f.nested :user do |user|
-      .row
-        | By:
-        = user.input :email, disabled: "true"
+      .row.text-left
+        .col-sm-1
+          | By:
+        .col-sm-5
+          = user.input :email, disabled: "true"
     .row
-      = f.submit(content: "Create User")
+      = f.submit(content: "Create Post")

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170611043354) do
     t.string "gender"
     t.boolean "block"
     t.text "content"
+    t.text "auth_meta_data"
     t.text "avatar_meta_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

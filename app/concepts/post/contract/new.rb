@@ -17,7 +17,7 @@ module Post::Contract
       required(:body).filled
     end
 
-    property :user, prepopulator: ->(options) { self.email = options[:user_email]} do
+    property :user, prepopulator: ->(options) { self.user = User.find_by(email: options[:user_email]) } do
       property :email
     end
   end

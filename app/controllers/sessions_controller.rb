@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     run Session::SignIn do |result|
       tyrant.sign_in!(result["model"])
-      return redirect_to "/reports"
+      return redirect_to "/users"
     end
     render Session::Cell::SignIn, result["contract.default"]
   end

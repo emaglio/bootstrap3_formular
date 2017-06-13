@@ -12,10 +12,11 @@ module User::Contract
     property :block
     property :password, virtual: true
     property :confirm_password, virtual: true
+    property :auth_meta_data
     property :avatar, virtual: :true
 
     extend Paperdragon::Model::Writer
-    processable_writer :logo
+    processable_writer :avatar
 
     property :avatar_meta_data
 
@@ -23,7 +24,6 @@ module User::Contract
       required(:email).filled
       required(:password).filled
       required(:confirm_password).filled
-      required(:avatar).filled
     end
   end
 end
