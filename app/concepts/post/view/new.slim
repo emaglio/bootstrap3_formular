@@ -1,0 +1,16 @@
+.row
+  h1 New Post
+.row
+  = trb_form_for model, "/posts", method: :post, builder: :bootstrap3, id: :new_post do |f|
+    .row
+      = f.input :title, label: "Title"
+    .row
+      = f.input :subtitle, label: "Subtitle"
+    .row
+      = f.textarea :body, placeholder: "Write here", rows: 9
+    = f.nested :user do |user|
+      .row
+        | By:
+        = user.input :email, disabled: "true"
+    .row
+      = f.submit(content: "Create User")
