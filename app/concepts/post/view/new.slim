@@ -2,12 +2,12 @@
   h1 New Post
 .row
   = trb_form_for model, "/posts", method: :post, builder: :bootstrap3, id: :new_post do |f|
-    .row
+    .row.text-left
       = f.input :title, label: "Title"
-    .row
+    .row.text-left
       = f.input :subtitle, label: "Subtitle"
-    .row
-      = f.textarea :body, placeholder: "Write here", rows: 9
+    .row.text-left
+      = f.textarea :body, label: "Write here:", rows: 9
     = f.nested :user do |user|
       .row.text-left
         .col-sm-1
