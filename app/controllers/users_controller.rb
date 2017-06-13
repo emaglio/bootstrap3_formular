@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     run User::Create do |result|
+      tyrant.sign_in!(result["model"])
       return redirect_to "/users"
     end
 

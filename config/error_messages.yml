@@ -2,3 +2,4 @@ en:
   errors:
     user_exists?: "User not found"
     password_ok?: "Wrong Password"
+    unique_email?: "Email already present in the database"

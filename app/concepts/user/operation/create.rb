@@ -6,7 +6,6 @@ class User::Create < Trailblazer::Operation
   step :upload_image!
   step Contract::Persist()
   step :create!
-  step :sing_in!
 
   def upload_image!(options, *)
     return true if options["contract.default"].avatar == nil
@@ -23,7 +22,4 @@ class User::Create < Trailblazer::Operation
     model.save
   end
 
-  def sign_in!(options, model:, **)
-    tyrant.sign_in!(model)
-  end
 end # class User::Create

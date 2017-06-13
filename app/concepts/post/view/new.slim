@@ -1,7 +1,7 @@
 .row
   h1 New Post
 .row
-  = trb_form_for model, "/posts", method: :post, builder: :bootstrap3, id: :new_post do |f|
+  = trb_form_for model, "/users/#{current_user.id}/posts", method: :post, builder: :bootstrap3, id: :new_post do |f|
     .row.text-left
       = f.input :title, label: "Title"
     .row.text-left

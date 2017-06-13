@@ -20,8 +20,16 @@ module User::Contract
 
     property :avatar_meta_data
 
-    validation  do
-      required(:email).filled
+    validation with: {form: true}  do
+      configure do
+        config.messages_file = 'config/error_messages.yml'
+
+        def unique_email?
+          User.where("email = ?", form.email).size == 0
+        end
+      end
+
+      required(:email).filled(:unique_email?)
       required(:password).filled
       required(:confirm_password).filled
     end
