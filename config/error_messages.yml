@@ -1,0 +1,4 @@
+en:
+  errors:
+    user_exists?: "User not found"
+    password_ok?: "Wrong Password"

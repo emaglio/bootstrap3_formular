@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     run Post::Create do |result|
-      return redirect_to "/Posts"
+      return redirect_to "/posts"
     end
 
     render Post::Cell::New, result["contract.default"]

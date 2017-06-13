@@ -1,11 +1,11 @@
 require 'reform/form/dry'
 
-module Session::Contract 
+module Session::Contract
   class SignIn < Reform::Form
     feature Reform::Form::Dry
     undef :persisted?
     attr_reader :user
-    
+
     property :email,    virtual: true
     property :password, virtual: true
 
@@ -13,9 +13,7 @@ module Session::Contract
       configure do
         config.messages_file = 'config/error_messages.yml'
 
-        # change this in order to have variable (@user) in order to have it available in the contract and
-        # run just @model = contract.user instead of another find_by
-        def user 
+        def user
           return User.find_by(email: form.email)
         end
 
@@ -23,22 +21,13 @@ module Session::Contract
           return user != nil
         end
 
-        def password_ok? #change this in order to run this only if user exists
+        def password_ok?
           Tyrant::Authenticatable.new(user).digest?(form.password) == true if user != nil
         end
-
-        def not_blocked?
-          user.block == false or user.block == nil 
-        end
       end
-      
+
       required(:email).filled(:user_exists?)
       required(:password).filled
-
-      #check if user is blocked only if email is filled and user exists
-      validate(not_blocked?: :email) do
-        not_blocked?
-      end
 
       #verify password only if it has been filled first
       validate(password_ok?: :password) do

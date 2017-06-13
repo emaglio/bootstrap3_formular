@@ -10,7 +10,6 @@ module Post::Contract
     property :title
     property :subtitle
     property :body
-    property :user_id
 
     validation  do
       required(:title).filled

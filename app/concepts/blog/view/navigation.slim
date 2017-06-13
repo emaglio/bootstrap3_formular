@@ -18,18 +18,18 @@
                 = link_to welcome, user_path(current_user)
             li
               = link_to "Home"
-            li
-              = link_to "New Post", new_post_path
             - if signed_in?
-                li
-                  = link_to "My Posts"
-                li
-                  = link_to "Sign Out"
+              li
+                = link_to "New Post", new_user_post_path(current_user.id)
+              li
+                = link_to "My Posts"
+              li
+                = link_to "Sign Out", sign_out_sessions_path
             -else
               li
                   = link_to "New User", new_user_path
               li
-                  = link_to "Sign In"
+                  = link_to "Sign In", new_session_path
           </ul>
         </div>
         <!-- /.navbar-collapse -->
