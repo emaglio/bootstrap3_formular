@@ -5,10 +5,6 @@ module User::Cell
     include ActionView::Helpers::FormOptionsHelper
     include Formular::Helper
     include Formular::RailsHelper
-
-    def current_user
-      return options[:context][:current_user]
-    end
   end # class New
 
 end # module User::Cell

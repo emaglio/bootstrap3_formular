@@ -78,4 +78,5 @@ gem 'formular', :github => "trailblazer/formular"
 gem 'reform', '>= 2.3.0.rc1'
 gem 'reform-rails', '>= 0.2.0.rc1'
 gem 'tyrant', :git => "https://github.com/emaglio/tyrant.git", :branch => "to_TRB2"
+gem 'paperdragon'
 

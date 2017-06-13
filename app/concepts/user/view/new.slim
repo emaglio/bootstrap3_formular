@@ -23,4 +23,6 @@
       .col-sm-6
         = f.input :confirm_password, placeholder: "Confirm Password", type: "password"
     .row
+      = f.avatar, label: "Profile image", type: "file"
+    .row
       = f.submit(content: "Create User")

@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170611043354) do
 
+  create_table "posts", force: :cascade do |t|
+    t.text "title"
+    t.text "subtitle"
+    t.text "body"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "firstname"
@@ -20,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170611043354) do
     t.string "gender"
     t.boolean "block"
     t.text "content"
+    t.text "avatar_meta_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

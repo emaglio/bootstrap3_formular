@@ -1,11 +1,8 @@
 require 'reform/form/dry'
-require 'disposable/twin/property/hash'
-require 'disposable/twin/property/unnest'
 
 module User::Contract
   class New < Reform::Form
     feature Reform::Form::Dry
-    include Disposable::Twin::Property::Hash
 
     property :email
     property :firstname
@@ -15,36 +12,18 @@ module User::Contract
     property :block
     property :password, virtual: true
     property :confirm_password, virtual: true
+    property :avatar, virtual: :true
 
-    validation  with: { form: true } do
-      configure do
-        config.messages_file = 'config/error_messages.yml'
+    extend Paperdragon::Model::Writer
+    processable_writer :logo
 
-        # def unique_email?
-        #   User.where("email = ?", form.email).size == 0
-        # end
+    property :avatar_meta_data
 
-        # def email?
-        #   ! /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.match(form.email).nil?
-        # end
-
-        # def must_be_equal?
-        #   return form.password == form.confirm_password
-        # end
-      end
-
+    validation  do
       required(:email).filled
       required(:password).filled
       required(:confirm_password).filled
-
-
-      # validate(unique_email?: :email) do
-      #   unique_email?
-      # end
-
-      # validate(must_be_equal?: :confirm_password) do
-      #   must_be_equal?
-      # end
+      required(:avatar).filled
     end
   end
 end
