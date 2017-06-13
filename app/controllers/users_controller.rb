@@ -21,4 +21,10 @@ class UsersController < ApplicationController
     render User::Cell::New, result["contract.default"]
   end
 
+  def all_posts
+    run User::AllPosts
+
+    render User::Cell::AllPosts, result["model"]
+  end
+
 end # class UserController
