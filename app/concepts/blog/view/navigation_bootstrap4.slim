@@ -1,0 +1,27 @@
+<!-- Navigation -->
+nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav"
+  . class="container"
+    . class="navbar-header page-scroll"
+      button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+        | Menu
+        i class="fa fa-bars"
+
+    . class="collapse navbar-collapse" id="navbarResponsive"
+      ul class="navbar-nav ml-auto"
+        - if signed_in?
+          li class="nav-item"
+            = link_to welcome, user_path(current_user)
+        li class="nav-item"
+          = link_to "Home", posts_users_path
+        - if signed_in?
+          li class="nav-item"
+            = link_to "New Post", new_user_post_path(current_user.id)
+          li class="nav-item"
+            = link_to "My Posts", user_posts_path(current_user.id)
+          li class="nav-item"
+            = link_to "Sign Out", sign_out_sessions_path
+        -else
+          li class="nav-item"
+              = link_to "New User", new_user_path
+          li class="nav-item"
+              = link_to "Sign In", new_session_path

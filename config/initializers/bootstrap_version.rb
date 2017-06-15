@@ -1,3 +1,3 @@
 class BootstrapVersion < ActiveRecord::Base
-  Use = 3
+  Use = 4
 end # class BootstrapVersion

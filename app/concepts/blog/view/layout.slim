@@ -8,7 +8,7 @@ html lang = "en"
     meta name="description" content=""
     meta name="author" content=""
 
-    title = "Formular Bootstrap3"
+    title = "Formular Bootstrap"
 
     <!-- Theme CSS -->
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
@@ -16,7 +16,6 @@ html lang = "en"
     = csrf_meta_tags
 
     link href="/#{bootstrap}/css/bootstrap.css" rel='stylesheet' type='text/css'
-    link href="/#{bootstrap}/css/bootstrap-theme.css" rel='stylesheet' type='text/css'
     link href="/#{bootstrap}/css/clean-blog.css" rel='stylesheet' type='text/css'
 
     script src="/#{bootstrap}/js/bootstrap.js"
@@ -31,17 +30,17 @@ html lang = "en"
   body
     = cell('blog/cell/navigation')
     <!-- Page Header -->
-    .header class="intro-header" style="background-image: url('/assets/home-bg.jpg')"
+    header class= header_class style="background-image: url('/assets/home-bg.jpg')"
       .container
         .row
-          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          . class= layout_structure
             div class = "site-heading"
-              h1 = "Formular Bootstrap3"
+              h1 = "Formular Bootstrap v#{BootstrapVersion::Use.to_s}"
               hr class = "small"
               .subheading
-                = "App example to visually test Formular with Bootstrap3 as builder"
+                = "App example to visually test Formular with Bootstrap as builder"
 
-    .col-lg-4.col-lg-offset-4.text-center
+    . class= layout_structure
       = yield
 
     = cell('blog/cell/footer')
