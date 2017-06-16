@@ -4,7 +4,7 @@
       .panel-title.text-center
         h4 = "Please Sing In"
     .panel-body
-      = trb_form_for(model, "/sessions", method: :post, builder: :bootstrap4, id: :new_session) do |f|
+      = trb_form_for(model, "/sessions", method: :post, builder: bootstrap, id: :new_session) do |f|
         .row.col-sm-12
           = f.input :email, placeholder: "Email"
         .row.col-sm-12

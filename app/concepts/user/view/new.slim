@@ -1,7 +1,7 @@
 .row
   h1 New User
 .row
-  = trb_form_for model, "/users", method: :post, builder: :bootstrap3, id: :new_user, enctype: 'multipart/form-data' do |f|
+  = trb_form_for model, "/users", method: :post, builder: bootstrap, id: :new_user, enctype: 'multipart/form-data' do |f|
     .row
       .col-sm-6
         = f.input :firstname, placeholder: "Firstname"

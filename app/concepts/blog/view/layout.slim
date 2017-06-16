@@ -34,13 +34,15 @@ html lang = "en"
       .container
         .row
           . class= layout_structure
-            div class = "site-heading"
+            . class = "site-heading"
               h1 = "Formular Bootstrap v#{BootstrapVersion::Use.to_s}"
               hr class = "small"
               .subheading
                 = "App example to visually test Formular with Bootstrap as builder"
 
-    . class= layout_structure
-      = yield
+    . class= "container"
+      .row
+        . class= layout_structure
+          = yield
 
     = cell('blog/cell/footer')

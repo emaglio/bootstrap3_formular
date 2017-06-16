@@ -12,9 +12,8 @@ module Blog::Cell
     end
 
     def layout_structure
-      BootstrapVersion::Use == 3 ? "col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1" : "col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+      BootstrapVersion::Use == 3 ? "col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" : "col-lg-8 offset-lg-2 col-md-10 offset-md-1"
     end
-
   end # class Layout
 
 end # module Blog::Cell
