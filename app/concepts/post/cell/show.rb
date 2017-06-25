@@ -6,10 +6,6 @@ module Post::Cell
       Post.find_by(id: params[:id])
     end
 
-    def comments
-      post.comments
-    end
-
   end # class Show
 
 end # module Post::Cell

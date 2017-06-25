@@ -1,4 +1,12 @@
 .row
+  strong
+    = model.user.firstname
+  small
+    = " has commented on "
+    = model.created_at.strftime("%d %B %Y")
+.row
   = body
-  = weight
+.row
+  small
+    = "with #{reaction} feeling"
 hr
