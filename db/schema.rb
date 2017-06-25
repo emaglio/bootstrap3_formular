@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170611043354) do
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "weight"
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "title"
     t.text "subtitle"

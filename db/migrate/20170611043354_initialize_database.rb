@@ -24,5 +24,14 @@ class InitializeDatabase < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
+    create_table :comments do |t|
+      t.text :body
+      t.integer :weight
+      t.integer :user_id
+      t.integer :post_id
+
+      t.timestamps
+    end
+
   end
 end

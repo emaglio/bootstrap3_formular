@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
     collection do
       get "all_posts", as: "posts"
     end

@@ -20,4 +20,11 @@ class PostsController < ApplicationController
     render Post::Cell::New, result["contract.default"]
   end
 
+  def show
+    run Post::Show
+
+
+    render Post::Cell::Show, result["contract.default"]
+  end
+
 end # class UserController
