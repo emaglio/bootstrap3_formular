@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     run Comment::Create do |result|
-      return redirect_to user_post_path
+      return redirect_to user_post_path(id: params[:post_id])
     end
 
     render Post::Cell::Show, result["contract.default"]

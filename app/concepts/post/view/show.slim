@@ -1,23 +1,25 @@
 .row
-  = model.title
+  = post.title
 .row
-  = model.subtitle
+  = post.subtitle
 .row
-  = model.body
+  = post.body
 
 hr
 .row
   h2 What do you think?
 .row
   .col-md-8
-    = trb_form_for model, user_post_comments_path(post_id: model.id), method: :post, builder: bootstrap, id: :new_comment do |f|
-      = f.nested :user do |user|
-        = user.input :email, value: current_user.email, type: "hidden"
+    = trb_form_for model, user_post_comments_path(post_id: post.id, id: post.id), method: :post, builder: bootstrap, id: :new_comment do |f|
       = f.collection :comments do |comment|
+        = comment.nested :user do |user|
+          = user.input :email, value: current_user.email, type: "hidden"
         = comment.textarea :body, rows: 3, placeholder: "Your Comment"
-        = comment.checkbox :weight, collection: [['Neutral', 0], ['Agreed', 1], ['Not Agreed', 2]]
+        = comment.radio :weight, collection: [['Neutral', 0], ['Agreed', 1], ['Not Agreed', 2]]
       .row
         = f.submit(content: "Create Comment")
-
+hr
+.row
+  = cell("comment/cell/show", collection: comments )
 
 
