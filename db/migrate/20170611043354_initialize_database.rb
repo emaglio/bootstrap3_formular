@@ -27,6 +27,7 @@ class InitializeDatabase < ActiveRecord::Migration[5.1]
     create_table :comments do |t|
       t.text :body
       t.integer :weight
+      t.integer :public
       t.integer :user_id
       t.integer :post_id
 

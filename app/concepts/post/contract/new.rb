@@ -5,7 +5,6 @@ require 'disposable/twin/property/unnest'
 module Post::Contract
   class New < Reform::Form
     feature Reform::Form::Dry
-    include Disposable::Twin::Property::Hash
 
     property :title
     property :subtitle

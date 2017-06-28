@@ -1,7 +1,7 @@
 .row
   h1 New User
 .row
-  = trb_form_for model, "/users", method: :post, builder: bootstrap, id: :new_user, enctype: 'multipart/form-data' do |f|
+  = form model, "/users", method: :post, builder: bootstrap, id: :new_user, enctype: 'multipart/form-data' do |f|
     .row
       .col-sm-6
         = f.input :firstname, placeholder: "Firstname"
@@ -16,7 +16,7 @@
         = f.input :dob, placeholder: "Date of birth:"
     .row
       .col-sm-12
-        = f.input :email, placeholder: "Email"
+        = f.input_group :email, placeholder: "Email", left_addon: ' @ ', left_addon: 'style="background-colour: red;"'
     .row
       .col-sm-6
         = f.input :password, placeholder: "Password", type: "password"

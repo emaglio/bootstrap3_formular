@@ -1,17 +1,9 @@
-.row
-  h1 New Post
+h1 New Post
 = trb_form_for model, "/users/#{current_user.id}/posts", method: :post, builder: bootstrap, id: :new_post do |f|
-  .row.text-left
-    = f.input :title, label: "Title"
-  .row.text-left
-    = f.input :subtitle, label: "Subtitle"
-  .row.text-left
-    = f.textarea :body, label: "Write here:", rows: 9
+  = f.input :title, label: "Title"
+  = f.input :subtitle, label: "Subtitle"
+  = f.textarea :body, label: "Write here:", rows: 9
   = f.nested :user do |user|
-    .row.text-left
-      .col-sm-1
-        | By:
-      .col-sm-5
-        = user.input :email, disabled: "true"
-  .row
-    = f.submit(content: "Create Post")
+    | By:
+    = user.input :email, disabled: "true"
+  = f.submit(content: "Create Post")
