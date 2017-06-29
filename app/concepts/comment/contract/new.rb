@@ -12,11 +12,8 @@ module Comment::Contract
       required(:weight).filled
     end
 
-    property :post, prepopulator: ->(options) { self.post = Post.find_by(id: options[:post]) } do
-    end
+    property :post, readonly: true
+    property :user, readonly: true
 
-    property :user, prepopulator: ->(options) { self.user = User.find_by(email: options[:user_email]) } do
-      property :email
-    end
   end
 end

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     run Post::Create::Present
+    result["contract.default"].prepopulate!(user_email: tyrant.current_user.email) if tyrant.current_user
 
     render Post::Cell::New, result["contract.default"]
   end

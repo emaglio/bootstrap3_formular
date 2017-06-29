@@ -4,8 +4,6 @@ hr
 .row
   .col-md-8
     = trb_form_for model, user_post_comments_path(post_id: options[:post].id), method: :post, builder: bootstrap, id: :new_comment do |f|
-      = f.nested :user do |user|
-        = user.input :email, value: current_user.email, type: "hidden"
       = f.textarea :body, rows: 3, placeholder: "Your Comment"
       .row
         .col-sm-6

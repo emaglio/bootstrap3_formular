@@ -1,5 +1,3 @@
-require_dependency 'user/operation/new'
-
 class User::Create < Trailblazer::Operation
 
   class Present < Trailblazer::Operation
