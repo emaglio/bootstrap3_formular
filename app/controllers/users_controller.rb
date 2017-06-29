@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    run User::New
+    run User::Create::Present
 
     render User::Cell::New, result["contract.default"]
   end

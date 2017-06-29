@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    run Post::New
+    run Post::Create::Present
 
     render Post::Cell::New, result["contract.default"]
   end

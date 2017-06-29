@@ -1,7 +1,13 @@
 require_dependency 'user/operation/new'
 
 class User::Create < Trailblazer::Operation
-  step Nested(::User::New)
+
+  class Present < Trailblazer::Operation
+    step Model(User, :new)
+    step Contract::Build(constant: User::Contract::New)
+  end # class Present
+
+  step Nested( Present )
   step Contract::Validate()
   step :upload_image!
   step Contract::Persist()
