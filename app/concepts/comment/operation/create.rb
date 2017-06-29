@@ -1,7 +1,17 @@
-require_dependency 'post/operation/show'
 
 class Comment::Create < Trailblazer::Operation
-  step Nested(Post::Show)
+  class Present < Trailblazer::Operation
+    step Model(Comment, :new)
+    step Contract::Build(constant: Comment::Contract::New)
+    step :prepopulate!
+
+    def prepopulate!(options, current_user:, params:, **)
+      return false if !current_user
+      options["contract.default"].prepopulate!(user_email: current_user.email, post: params[:id])
+    end
+  end
+
+  step Nested( Present )
   step Contract::Validate()
   step :check_errors!
   step Contract::Persist(method: :sync)

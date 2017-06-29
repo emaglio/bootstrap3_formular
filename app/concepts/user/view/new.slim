@@ -13,10 +13,10 @@
         = f.select :gender, collection: [["Male"], ["Female"], ["You"]]
       .col-sm-2
       .col-sm-4
-        = f.input :dob, placeholder: "Date of birth:"
+        = f.input_group :dob, placeholder: "Date of birth:", left_addon: '<i class="fa fa-calendar" aria-hidden="true"></i>'
     .row
       .col-sm-12
-        = f.input_group :email, placeholder: "Email", left_addon: ' @ ', left_addon: 'style="background-colour: red;"'
+        = f.input_group :email, placeholder: "Email", left_addon: ' @ '
     .row
       .col-sm-6
         = f.input :password, placeholder: "Password", type: "password"

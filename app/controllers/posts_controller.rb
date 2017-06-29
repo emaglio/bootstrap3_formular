@@ -21,10 +21,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    run Post::Show
+    @post = Post::Show.(params)["model"]
+    run Comment::Create::Present
 
-
-    render Post::Cell::Show, result["contract.default"]
+    render Post::Cell::Show, result["contract.default"], post: @post
   end
 
 end # class UserController

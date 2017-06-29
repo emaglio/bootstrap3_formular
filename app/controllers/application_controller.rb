@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def render(cell_constant, model, options: {})
+  def render(cell_constant, model, options={})
     super(
           html: cell(
                 cell_constant,
@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
                   }.merge(options))
           )
   end
-
 private
   def _run_options(options)
     options.merge("current_user" => tyrant.current_user )

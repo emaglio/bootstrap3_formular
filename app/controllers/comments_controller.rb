@@ -17,7 +17,9 @@ class CommentsController < ApplicationController
       return redirect_to user_post_path(id: params[:post_id])
     end
 
-    render Post::Cell::Show, result["contract.default"]
+    @post = Post::Show.(id: params[:post_id])["model"]
+
+    render Post::Cell::Show, result["contract.default"], post: @post
   end
 
   # def show

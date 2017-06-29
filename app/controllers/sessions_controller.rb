@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     run Session::SignInForm
+
     render Session::Cell::SignIn, result["contract.default"]
   end
 
@@ -10,6 +11,7 @@ class SessionsController < ApplicationController
       tyrant.sign_in!(result["model"])
       return redirect_to "/users"
     end
+
     render Session::Cell::SignIn, result["contract.default"]
   end
 

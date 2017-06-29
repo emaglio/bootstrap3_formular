@@ -1,6 +1,4 @@
 require 'reform/form/dry'
-require 'disposable/twin/property/hash'
-require 'disposable/twin/property/unnest'
 
 module Comment::Contract
   class New < Reform::Form
@@ -9,13 +7,12 @@ module Comment::Contract
     property :weight
     property :public
 
-    validate do
+    validation do
       required(:body).filled
       required(:weight).filled
     end
 
-    property :post, prepopulator: ->(options) { self.post = Post.find_by(id: params[:post_id]) } do
-
+    property :post, prepopulator: ->(options) { self.post = Post.find_by(id: options[:post]) } do
     end
 
     property :user, prepopulator: ->(options) { self.user = User.find_by(email: options[:user_email]) } do

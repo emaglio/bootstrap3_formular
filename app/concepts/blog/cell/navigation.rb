@@ -1,20 +1,13 @@
 module Blog::Cell
 
   class Navigation < Trailblazer::Cell
+
     def current_user
       return options[:context][:current_user]
     end
 
-    def show
-      BootstrapVersion::Use == 3 ? bootstrap3 : bootstrap4
-    end
-
-    def bootstrap3
-      render view: :navigation_bootstrap3
-    end
-
-    def bootstrap4
-      render view: :navigation_bootstrap4
+    def nav
+      render BootstrapVersion::Use == 3 ? :navigation_bootstrap3 : :navigation_bootstrap4
     end
 
     def welcome
